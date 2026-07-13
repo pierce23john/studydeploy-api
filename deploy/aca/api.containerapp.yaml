@@ -1,0 +1,35 @@
+name: studydeploy-api
+location: eastus
+type: Microsoft.App/containerApps
+properties:
+  managedEnvironmentId: /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.App/managedEnvironments/<aca-environment-name>
+  configuration:
+    ingress:
+      external: true
+      targetPort: 8080
+      transport: auto
+    secrets:
+      - name: demo-secret
+        value: REPLACE_WITH_REAL_SECRET
+  template:
+    containers:
+      - name: studydeploy-api
+        image: ghcr.io/pierce23john/studydeploy-api:latest
+        env:
+          - name: DEPLOYMENT_TARGET
+            value: aca
+          - name: APP_MESSAGE
+            value: Hello from ACA
+          - name: DEMO_SECRET
+            secretRef: demo-secret
+        resources:
+          cpu: 0.5
+          memory: 1Gi
+    scale:
+      minReplicas: 0
+      maxReplicas: 5
+      rules:
+        - name: http-scaling
+          http:
+            metadata:
+              concurrentRequests: "20"

@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: studydeploy-api
+  namespace: studydeploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: studydeploy-api
+  template:
+    metadata:
+      labels:
+        app: studydeploy-api
+    spec:
+      containers:
+        - name: studydeploy-api
+          image: ghcr.io/pierce23john/studydeploy-api:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: studydeploy-api-config
+            - secretRef:
+                name: studydeploy-api-secret
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
