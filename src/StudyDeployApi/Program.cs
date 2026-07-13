@@ -21,8 +21,8 @@ app.MapGet("/", () =>
 {
 	return Results.Ok(new
 	{
-		name = "StudyDeployApi V3",
-		purpose = "Simple WeatherForecast API for ACA and AKS learning V3",
+		name = "StudyDeployApi V4",
+		purpose = "Simple WeatherForecast API for ACA and AKS learning V4",
 		deploymentTarget = Environment.GetEnvironmentVariable("DEPLOYMENT_TARGET") ?? "local"
 	});
 });
