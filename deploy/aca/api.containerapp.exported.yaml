@@ -1,0 +1,76 @@
+id: /subscriptions/d34c4cea-a009-4676-82b1-b8263d155382/resourceGroups/AZ-LRN-ACA-RG/providers/Microsoft.App/containerapps/studydeploy-api
+identity:
+  type: None
+kind: containerapps
+location: Southeast Asia
+name: studydeploy-api
+properties:
+  configuration:
+    activeRevisionsMode: Single
+    dapr: null
+    identitySettings: []
+    ingress:
+      additionalPortMappings: []
+      allowInsecure: false
+      clientCertificateMode: null
+      corsPolicy: null
+      customDomains: null
+      exposedPort: 0
+      external: true
+      fqdn: studydeploy-api.redhill-a9ecf3c1.southeastasia.azurecontainerapps.io
+      ipSecurityRestrictions: null
+      stickySessions:
+        affinity: none
+      targetPort: 8080
+      traffic:
+      - latestRevision: true
+        weight: 100
+      transport: Auto
+    maxInactiveRevisions: 100
+    registries: []
+    runtime: {}
+    secrets: null
+    service: null
+  customDomainVerificationId: 9C101E6D8F5330A29A762A759D5845C5BC5FF2AD8485BB2556F3211DC0A6254A
+  delegatedIdentities: []
+  environmentId: /subscriptions/d34c4cea-a009-4676-82b1-b8263d155382/resourceGroups/AZ-LRN-ACA-RG/providers/Microsoft.App/managedEnvironments/az-lrn-studydeploy-env
+  eventStreamEndpoint: https://southeastasia.azurecontainerapps.dev/subscriptions/d34c4cea-a009-4676-82b1-b8263d155382/resourceGroups/AZ-LRN-ACA-RG/containerApps/studydeploy-api/eventstream
+  latestReadyRevisionName: studydeploy-api--qxggqgj
+  latestRevisionFqdn: studydeploy-api--qxggqgj.redhill-a9ecf3c1.southeastasia.azurecontainerapps.io
+  latestRevisionName: studydeploy-api--qxggqgj
+  managedEnvironmentId: /subscriptions/d34c4cea-a009-4676-82b1-b8263d155382/resourceGroups/AZ-LRN-ACA-RG/providers/Microsoft.App/managedEnvironments/az-lrn-studydeploy-env
+  outboundIpAddresses:
+  - 20.44.243.135
+  provisioningState: Succeeded
+  runningStatus: Running
+  template:
+    containers:
+    - args: []
+      command: []
+      image: ghcr.io/pierce23john/studydeploy-api:latest
+      name: studydeploy-api
+      resources:
+        cpu: 0.25
+        ephemeralStorage: 1Gi
+        memory: 0.5Gi
+    initContainers: null
+    revisionSuffix: ''
+    scale:
+      cooldownPeriod: 300
+      maxReplicas: 10
+      minReplicas: 0
+      pollingInterval: 30
+      rules: null
+    serviceBinds: null
+    terminationGracePeriodSeconds: null
+    volumes: null
+  workloadProfileName: null
+resourceGroup: AZ-LRN-ACA-RG
+systemData:
+  createdAt: '2026-07-13T14:20:16.1041602'
+  createdBy: piercejohnstevens@gmail.com
+  createdByType: User
+  lastModifiedAt: '2026-07-13T14:20:16.1041602'
+  lastModifiedBy: piercejohnstevens@gmail.com
+  lastModifiedByType: User
+type: Microsoft.App/containerApps
